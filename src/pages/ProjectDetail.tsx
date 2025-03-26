@@ -37,7 +37,7 @@ const projects = [
     id: "image-cartoonify",
     title: "Image Cartoonify",
     description: "An image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification. This project showcases the power of machine learning in image manipulation.",
-    image: "/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png",
+    image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
     date: "March 2023",
     technologies: ["OpenCV", "Deep Learning", "Python", "Image Processing"],
     features: [
