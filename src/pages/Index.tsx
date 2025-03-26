@@ -27,7 +27,7 @@ const Index = () => {
               AI Product Architect & Researcher
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <PixelButton asChild className="animate-slide-in-bottom" style={{
+              <PixelButton asChild variant="outline" className="animate-slide-in-bottom" style={{
               animationDelay: "200ms"
             }}>
                 <Link to="/about">About Me</Link>
