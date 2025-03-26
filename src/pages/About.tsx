@@ -115,12 +115,12 @@ const About = () => {
               <div 
                 className="w-32 h-32 mx-auto rounded-none mb-6 bg-primary/10 overflow-hidden"
                 style={{
-                  border: "3px solid #8B5CF6",
+                  border: "3px solidrgb(1, 0, 5)",
                   boxShadow: "5px 5px 0 rgba(139, 92, 246, 0.4)",
                 }}
               >
                 <img 
-                  src="/placeholder.svg" 
+                  src="/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png" 
                   alt="Varun" 
                   className="w-full h-full object-cover"
                 />
