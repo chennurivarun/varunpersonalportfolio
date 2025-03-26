@@ -143,7 +143,7 @@ const Index = () => {
                   <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">Python</span>
                 </div>
                 <div className="flex justify-between">
-                  <PixelButton size="sm" asChild>
+                  <PixelButton size="sm" variant="outline" asChild>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                       View on GitHub
                     </a>
@@ -172,7 +172,7 @@ const Index = () => {
                   <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">Python</span>
                 </div>
                 <div className="flex justify-between">
-                  <PixelButton size="sm" asChild>
+                  <PixelButton size="sm" variant="outline" asChild>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                       View on GitHub
                     </a>
