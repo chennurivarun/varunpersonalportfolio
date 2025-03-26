@@ -14,7 +14,7 @@ const Projects = () => {
       description: "I developed a personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality.",
       tags: ["GPT-3.5", "NLP", "Python", "AI"],
       githubUrl: "https://github.com",
-      image: "/lovable-uploads/8fa64e62-0fd8-4fd8-b96c-7e2f3973bad9.webp",
+      image: "/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png",
     },
     {
       id: "image-cartoonify",
