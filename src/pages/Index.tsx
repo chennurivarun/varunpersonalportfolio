@@ -12,7 +12,7 @@ const Index = () => {
         backgroundImage: "url('/lovable-uploads/8e5633f3-56df-45ee-8271-d364c247a631.png')"
       }}>
           {/* Glass overlay */}
-          <div className="absolute inset-0 backdrop-blur-sm bg-background/30"></div>
+          <div className="absolute inset-0 bg-background/30"></div>
           <img alt="AI Assistant based on GPT-3.5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://wallpapercave.com/wp/wp14988134.webp" />
         </div>
         <div className="container px-4 mx-auto relative z-10">
