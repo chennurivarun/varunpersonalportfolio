@@ -141,7 +141,7 @@ const Index = () => {
             <PixelCard className="h-full overflow-hidden">
               <div className="h-48 mb-4 overflow-hidden">
                 <img 
-                  src="/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png" 
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QUklMjBsYW5ndWFnZSUyMG1vZGVsfGVufDB8fDB8fHww" 
                   alt="AI Assistant based on GPT-3.5" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />

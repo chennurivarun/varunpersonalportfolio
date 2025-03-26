@@ -22,7 +22,7 @@ const Projects = () => {
       description: "I created an image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification.",
       tags: ["OpenCV", "Deep Learning", "Image Processing", "Python"],
       githubUrl: "https://github.com",
-      image: "/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png",
+      image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
     },
     {
       id: "crypto-price-prediction",
