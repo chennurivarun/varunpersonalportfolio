@@ -1,95 +1,108 @@
 
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Projects", href: "/projects" },
+    { name: "Blog", href: "/blog" },
+    { name: "Resume", href: "/resume" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border px-4 py-3">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold tracking-tight relative group">
-          <span className="text-primary">Varun</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-300" style={{ 
-            backgroundImage: "linear-gradient(to right, transparent 0%, transparent 50%, #8B5CF6 50%, #8B5CF6 100%)",
-            backgroundSize: "8px 8px",
-          }}></span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50 border-b border-border">
+      <nav className="container mx-auto px-4 flex justify-between items-center h-16">
+        <NavLink to="/" className="text-xl md:text-2xl font-bold">
+          <span className="font-pixel text-sm md:text-base">Varun</span>
+        </NavLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`relative px-2 py-1 text-sm font-medium transition-colors ${
-                isActive(item.path)
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-primary"
-              }`}
+        <div className="hidden md:flex items-center space-x-1">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              className={({ isActive }) =>
+                cn(
+                  "px-3 py-2 rounded-md text-sm font-medium transition-colors relative group",
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                )
+              }
             >
-              {item.name}
-              {isActive(item.path) && (
-                <span 
-                  className="absolute -bottom-1 left-0 w-full h-1" 
-                  style={{ 
-                    backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
-                    backgroundSize: "8px 4px",
-                  }}
-                ></span>
+              {({ isActive }) => (
+                <>
+                  {link.name}
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-pixel"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
+                        backgroundSize: "6px 3px",
+                      }}
+                    ></span>
+                  )}
+                </>
               )}
-            </Link>
+            </NavLink>
           ))}
+          <div className="pl-2">
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Mobile Navigation Toggle */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={toggleMenu}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
-      </div>
+        {/* Mobile Menu Button */}
+        <div className="flex items-center md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={toggleMobileMenu}
+            className="p-2 rounded-md text-muted-foreground ml-1"
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </nav>
 
-      {/* Mobile Navigation Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden px-4 py-2 bg-background border-t border-border">
-          <div className="flex flex-col space-y-4 py-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`px-2 py-1 text-sm font-medium ${
-                  isActive(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-background border-b border-border">
+          <div className="container mx-auto px-4 py-2 space-y-1">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    "block px-3 py-2 rounded-md text-base font-medium",
+                    isActive
+                      ? "bg-accent text-accent-foreground"
+                      : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                  )
+                }
               >
-                {item.name}
-              </Link>
+                {link.name}
+              </NavLink>
             ))}
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

@@ -40,16 +40,16 @@ const ContactForm = () => {
 
   return (
     <div 
-      className="p-6 relative"
+      className="p-6 relative dark:bg-secondary/30"
       style={{
-        border: "3px solid #8B5CF6",
-        boxShadow: "5px 5px 0 rgba(139, 92, 246, 0.5)",
+        border: "3px solid hsl(var(--pixel-color))",
+        boxShadow: "5px 5px 0 rgba(var(--pixel-color) / 0.5)",
       }}
     >
       <div 
         className="absolute top-0 right-0 w-20 h-20 pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(45deg, transparent 50%, rgba(139, 92, 246, 0.5) 50%)",
+          backgroundImage: "linear-gradient(45deg, transparent 50%, rgba(var(--pixel-color) / 0.5) 50%)",
         }}
       ></div>
       
@@ -58,7 +58,7 @@ const ContactForm = () => {
         <span 
           className="absolute -bottom-1 left-0 w-full h-1" 
           style={{ 
-            backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+            backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
             backgroundSize: "8px 4px",
           }}
         ></span>

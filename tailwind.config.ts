@@ -29,6 +29,13 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				pixel: {
+					DEFAULT: 'hsl(var(--pixel-color))',
+					purple: '#8B5CF6',
+					blue: '#0EA5E9',
+					orange: '#F97316',
+					red: '#ea384c',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -66,12 +73,6 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				},
-				pixel: {
-					purple: '#8B5CF6',
-					blue: '#0EA5E9',
-					orange: '#F97316',
-					red: '#ea384c',
 				}
 			},
 			borderRadius: {

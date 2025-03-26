@@ -14,18 +14,18 @@ const Index = () => {
         <div 
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: "linear-gradient(45deg, #8B5CF6 25%, transparent 25%, transparent 50%, #8B5CF6 50%, #8B5CF6 75%, transparent 75%, transparent)",
+            backgroundImage: "linear-gradient(45deg, hsl(var(--pixel-color)) 25%, transparent 25%, transparent 50%, hsl(var(--pixel-color)) 50%, hsl(var(--pixel-color)) 75%, transparent 75%, transparent)",
             backgroundSize: "16px 16px",
           }}
         ></div>
         <div className="container px-4 mx-auto relative">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
-              Hello, I'm <span className="text-primary">Varun</span>
+              Hello, I'm <span className="text-pixel">Varun</span>
               <span 
                 className="absolute -bottom-1 left-0 w-full h-1" 
                 style={{ 
-                  backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+                  backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
                   backgroundSize: "8px 4px",
                 }}
               ></span>
@@ -53,7 +53,7 @@ const Index = () => {
             <span 
               className="absolute -bottom-1 left-0 w-full h-1" 
               style={{ 
-                backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+                backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
                 backgroundSize: "8px 4px",
               }}
             ></span>
@@ -65,11 +65,11 @@ const Index = () => {
                 <div 
                   className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
                   style={{
-                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(139, 92, 246, 0.1) 25%, rgba(139, 92, 246, 0.1) 50%, transparent 50%, transparent 75%, rgba(139, 92, 246, 0.1) 75%, rgba(139, 92, 246, 0.1))",
+                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
                   }}
                 >
-                  <Briefcase className="text-primary" size={28} />
+                  <Briefcase className="text-pixel" size={28} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">AI Product Architecture</h3>
                 <p className="text-muted-foreground">
@@ -83,11 +83,11 @@ const Index = () => {
                 <div 
                   className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
                   style={{
-                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(139, 92, 246, 0.1) 25%, rgba(139, 92, 246, 0.1) 50%, transparent 50%, transparent 75%, rgba(139, 92, 246, 0.1) 75%, rgba(139, 92, 246, 0.1))",
+                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
                   }}
                 >
-                  <Code className="text-primary" size={28} />
+                  <Code className="text-pixel" size={28} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">AI Research</h3>
                 <p className="text-muted-foreground">
@@ -101,11 +101,11 @@ const Index = () => {
                 <div 
                   className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
                   style={{
-                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(139, 92, 246, 0.1) 25%, rgba(139, 92, 246, 0.1) 50%, transparent 50%, transparent 75%, rgba(139, 92, 246, 0.1) 75%, rgba(139, 92, 246, 0.1))",
+                    backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
                   }}
                 >
-                  <FileText className="text-primary" size={28} />
+                  <FileText className="text-pixel" size={28} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">RPA Engineering</h3>
                 <p className="text-muted-foreground">
@@ -126,50 +126,78 @@ const Index = () => {
               <span 
                 className="absolute -bottom-1 left-0 w-full h-1" 
                 style={{ 
-                  backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+                  backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
                   backgroundSize: "8px 4px",
                 }}
               ></span>
             </h2>
-            <Link to="/projects" className="text-primary flex items-center gap-1 group">
+            <Link to="/projects" className="text-pixel flex items-center gap-1 group">
               View All
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <PixelCard className="h-full">
-              <h3 className="text-xl font-semibold mb-3">AI Assistant based on GPT-3.5</h3>
-              <p className="text-muted-foreground mb-4">
-                A personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">GPT-3.5</span>
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">NLP</span>
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+            <PixelCard className="h-full overflow-hidden">
+              <div className="h-48 mb-4 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png" 
+                  alt="AI Assistant based on GPT-3.5" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <PixelButton size="sm" asChild>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  View on GitHub
-                </a>
-              </PixelButton>
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-3">AI Assistant based on GPT-3.5</h3>
+                <p className="text-muted-foreground mb-4">
+                  A personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">GPT-3.5</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">NLP</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+                </div>
+                <div className="flex justify-between">
+                  <PixelButton size="sm" asChild>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      View on GitHub
+                    </a>
+                  </PixelButton>
+                  <PixelButton size="sm" variant="outline" asChild>
+                    <Link to="/projects/ai-assistant">Details</Link>
+                  </PixelButton>
+                </div>
+              </div>
             </PixelCard>
 
-            <PixelCard className="h-full">
-              <h3 className="text-xl font-semibold mb-3">Zaya - AI Personal Assistant</h3>
-              <p className="text-muted-foreground mb-4">
-                An AI personal assistant capable of executing real-time tasks through voice commands and CMD control.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">AI</span>
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">Voice Recognition</span>
-                <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+            <PixelCard className="h-full overflow-hidden">
+              <div className="h-48 mb-4 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png" 
+                  alt="Zaya - AI Personal Assistant" 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <PixelButton size="sm" asChild>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  View on GitHub
-                </a>
-              </PixelButton>
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-3">Zaya - AI Personal Assistant</h3>
+                <p className="text-muted-foreground mb-4">
+                  An AI personal assistant capable of executing real-time tasks through voice commands and CMD control.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">AI</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Voice Recognition</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+                </div>
+                <div className="flex justify-between">
+                  <PixelButton size="sm" asChild>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                      View on GitHub
+                    </a>
+                  </PixelButton>
+                  <PixelButton size="sm" variant="outline" asChild>
+                    <Link to="/projects/zaya-ai-assistant">Details</Link>
+                  </PixelButton>
+                </div>
+              </div>
             </PixelCard>
           </div>
         </div>

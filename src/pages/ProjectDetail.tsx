@@ -12,7 +12,7 @@ const projects = [
     id: "ai-assistant",
     title: "AI Assistant based on GPT-3.5",
     description: "A personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality. By implementing custom natural language processing (NLP) models, I was able to make communication more seamless and responsive.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
     date: "January 2023",
     technologies: ["GPT-3.5", "NLP", "Python", "Voice Recognition"],
     features: [
@@ -37,7 +37,7 @@ const projects = [
     id: "image-cartoonify",
     title: "Image Cartoonify",
     description: "An image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification. This project showcases the power of machine learning in image manipulation.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png",
     date: "March 2023",
     technologies: ["OpenCV", "Deep Learning", "Python", "Image Processing"],
     features: [
@@ -62,7 +62,7 @@ const projects = [
     id: "crypto-price-prediction",
     title: "Crypto Price Prediction Model",
     description: "A deep learning model using Long Short-Term Memory (LSTM) networks and TensorFlow to predict cryptocurrency prices. By analyzing historical market data, the model provides high-accuracy predictions, which can be useful for investors and analysts. This project demonstrates the ability to work with time-series data and build reliable financial models.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/78d367ff-c6ad-4998-9440-0dce7fa43f95.png",
     date: "June 2023",
     technologies: ["LSTM", "TensorFlow", "Python", "Time-Series Analysis"],
     features: [
@@ -87,7 +87,7 @@ const projects = [
     id: "zaya-ai-assistant",
     title: "Zaya - AI Personal Assistant",
     description: "An AI personal assistant capable of executing real-time tasks through voice commands and CMD control. Zaya offers a highly customizable user experience, allowing individuals to interact with their system hands-free. It features advanced speech interaction and real-time task execution, making everyday operations smoother.",
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png",
     date: "September 2023",
     technologies: ["AI", "Voice Recognition", "Python", "Command Line"],
     features: [
@@ -136,7 +136,7 @@ const ProjectDetail = () => {
           <span 
             className="absolute -bottom-1 left-0 w-full h-1" 
             style={{ 
-              backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+              backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
               backgroundSize: "8px 4px",
             }}
           ></span>
@@ -146,8 +146,8 @@ const ProjectDetail = () => {
           <div 
             className="w-full h-[400px] relative overflow-hidden mb-8"
             style={{
-              border: "3px solid #8B5CF6",
-              boxShadow: "10px 10px 0 rgba(139, 92, 246, 0.3)",
+              border: "3px solid hsl(var(--pixel-color))",
+              boxShadow: "10px 10px 0 rgba(var(--pixel-color) / 0.3)",
             }}
           >
             <img 
@@ -157,10 +157,10 @@ const ProjectDetail = () => {
             />
             
             {/* Pixel corner decorations */}
-            <div className="absolute top-0 left-0 w-6 h-6 bg-primary"></div>
-            <div className="absolute top-0 right-0 w-6 h-6 bg-primary"></div>
-            <div className="absolute bottom-0 left-0 w-6 h-6 bg-primary"></div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 bg-primary"></div>
+            <div className="absolute top-0 left-0 w-6 h-6 bg-pixel"></div>
+            <div className="absolute top-0 right-0 w-6 h-6 bg-pixel"></div>
+            <div className="absolute bottom-0 left-0 w-6 h-6 bg-pixel"></div>
+            <div className="absolute bottom-0 right-0 w-6 h-6 bg-pixel"></div>
           </div>
           
           <div className="flex flex-wrap gap-3 mb-6">
@@ -199,7 +199,7 @@ const ProjectDetail = () => {
           >
             <PixelCard className="p-4 h-full">
               <div className="flex flex-col h-full items-center text-center">
-                <Code className="text-primary mb-2" size={24} />
+                <Code className="text-pixel mb-2" size={24} />
                 <h3 className="font-semibold">Technologies</h3>
                 <div className="flex flex-wrap gap-2 justify-center mt-2">
                   {project.technologies.map((tech, index) => (
@@ -207,10 +207,10 @@ const ProjectDetail = () => {
                       key={index}
                       className="px-2 py-1 text-xs rounded-none"
                       style={{
-                        backgroundColor: "rgba(139, 92, 246, 0.1)",
-                        color: "#8B5CF6",
-                        border: "2px solid #8B5CF6",
-                        boxShadow: "2px 2px 0 rgba(139, 92, 246, 0.4)"
+                        backgroundColor: "hsl(var(--pixel-color) / 0.1)",
+                        color: "hsl(var(--pixel-color))",
+                        border: "2px solid hsl(var(--pixel-color))",
+                        boxShadow: "2px 2px 0 hsl(var(--pixel-color) / 0.4)"
                       }}
                     >
                       {tech}
@@ -222,7 +222,7 @@ const ProjectDetail = () => {
             
             <PixelCard className="p-4 h-full">
               <div className="flex flex-col h-full items-center text-center">
-                <Tag className="text-primary mb-2" size={24} />
+                <Tag className="text-pixel mb-2" size={24} />
                 <h3 className="font-semibold">Type</h3>
                 <p className="text-muted-foreground mt-2">Personal Project</p>
               </div>
@@ -230,7 +230,7 @@ const ProjectDetail = () => {
             
             <PixelCard className="p-4 h-full">
               <div className="flex flex-col h-full items-center text-center">
-                <Users className="text-primary mb-2" size={24} />
+                <Users className="text-pixel mb-2" size={24} />
                 <h3 className="font-semibold">Role</h3>
                 <p className="text-muted-foreground mt-2">Developer & Designer</p>
               </div>
@@ -238,7 +238,7 @@ const ProjectDetail = () => {
             
             <PixelCard className="p-4 h-full">
               <div className="flex flex-col h-full items-center text-center">
-                <Laptop className="text-primary mb-2" size={24} />
+                <Laptop className="text-pixel mb-2" size={24} />
                 <h3 className="font-semibold">Platform</h3>
                 <p className="text-muted-foreground mt-2">
                   {project.id.includes("assistant") ? "Desktop Application" : 
@@ -285,12 +285,12 @@ const ProjectDetail = () => {
                       key={img}
                       className="w-full h-24 overflow-hidden"
                       style={{
-                        border: "2px solid #8B5CF6",
-                        boxShadow: "3px 3px 0 rgba(139, 92, 246, 0.3)",
+                        border: "2px solid hsl(var(--pixel-color))",
+                        boxShadow: "3px 3px 0 rgba(var(--pixel-color) / 0.3)",
                       }}
                     >
                       <img 
-                        src="/placeholder.svg" 
+                        src={project.image} 
                         alt={`${project.title} screenshot ${img}`}
                         className="w-full h-full object-cover"
                       />
@@ -314,8 +314,8 @@ const ProjectDetail = () => {
                         <div 
                           className="relative w-full h-20 overflow-hidden mb-2"
                           style={{
-                            border: "2px solid #8B5CF6",
-                            boxShadow: "3px 3px 0 rgba(139, 92, 246, 0.3)",
+                            border: "2px solid hsl(var(--pixel-color))",
+                            boxShadow: "3px 3px 0 rgba(var(--pixel-color) / 0.3)",
                             transition: "all 0.3s ease"
                           }}
                         >
@@ -325,7 +325,7 @@ const ProjectDetail = () => {
                             className="w-full h-full object-cover"
                           />
                           <div 
-                            className="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                            className="absolute inset-0 bg-pixel/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
                           >
                             <span className="text-white font-medium">View Project</span>
                           </div>

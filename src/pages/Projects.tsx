@@ -4,36 +4,41 @@ import PageContainer from "@/components/layout/PageContainer";
 import { PixelCard } from "@/components/ui/PixelCard";
 import { PixelButton } from "@/components/ui/PixelButton";
 import { Github } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const projects = [
     {
-      id: 1,
+      id: "ai-assistant",
       title: "AI Assistant based on GPT-3.5",
-      description: "I developed a personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality. By implementing custom natural language processing (NLP) models, I was able to make communication more seamless and responsive.",
+      description: "I developed a personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality.",
       tags: ["GPT-3.5", "NLP", "Python", "AI"],
       githubUrl: "https://github.com",
+      image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
     },
     {
-      id: 2,
+      id: "image-cartoonify",
       title: "Image Cartoonify",
-      description: "I created an image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification. This project showcases the power of machine learning in image manipulation.",
+      description: "I created an image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification.",
       tags: ["OpenCV", "Deep Learning", "Image Processing", "Python"],
       githubUrl: "https://github.com",
+      image: "/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png",
     },
     {
-      id: 3,
+      id: "crypto-price-prediction",
       title: "Crypto Price Prediction Model",
-      description: "This project involved developing a deep learning model using Long Short-Term Memory (LSTM) networks and TensorFlow to predict cryptocurrency prices. By analyzing historical market data, the model provides high-accuracy predictions, which can be useful for investors and analysts. This project demonstrates my ability to work with time-series data and build reliable financial models.",
+      description: "This project involved developing a deep learning model using Long Short-Term Memory (LSTM) networks and TensorFlow to predict cryptocurrency prices. By analyzing historical market data, the model provides high-accuracy predictions, useful for investors and analysts.",
       tags: ["LSTM", "TensorFlow", "Time Series", "Financial Modeling"],
       githubUrl: "https://github.com",
+      image: "/lovable-uploads/78d367ff-c6ad-4998-9440-0dce7fa43f95.png",
     },
     {
-      id: 4,
+      id: "zaya-ai-assistant",
       title: "Zaya - AI Personal Assistant",
-      description: "I built Zaya, an AI personal assistant capable of executing real-time tasks through voice commands and CMD control. Zaya offers a highly customizable user experience, allowing individuals to interact with their system hands-free. It features advanced speech interaction and real-time task execution, making everyday operations smoother.",
+      description: "I built Zaya, an AI personal assistant capable of executing real-time tasks through voice commands and CMD control. Zaya offers a highly customizable user experience, allowing individuals to interact with their system hands-free.",
       tags: ["AI", "Voice Recognition", "Python", "Automation"],
       githubUrl: "https://github.com",
+      image: "/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png",
     },
   ];
 
@@ -48,7 +53,7 @@ const Projects = () => {
               <span 
                 className="absolute -bottom-1 left-0 w-full h-1" 
                 style={{ 
-                  backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+                  backgroundImage: "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
                   backgroundSize: "8px 4px",
                 }}
               ></span>
@@ -66,22 +71,42 @@ const Projects = () => {
         <div className="container px-4 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <PixelCard key={project.id} className="h-full flex flex-col">
-                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1">
-                      {tag}
-                    </span>
-                  ))}
+              <PixelCard key={project.id} className="h-full flex flex-col overflow-hidden">
+                <Link to={`/projects/${project.id}`} className="block h-48 mb-4 overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </Link>
+                <div className="flex flex-col flex-grow p-4">
+                  <h3 className="text-xl font-semibold mb-3">
+                    <Link to={`/projects/${project.id}`} className="hover:text-primary transition-colors">
+                      {project.title}
+                    </Link>
+                  </h3>
+                  <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-between">
+                    <PixelButton size="sm" className="inline-flex items-center gap-2" asChild>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github size={16} />
+                        View Code
+                      </a>
+                    </PixelButton>
+                    <PixelButton size="sm" variant="outline" asChild>
+                      <Link to={`/projects/${project.id}`}>
+                        View Details
+                      </Link>
+                    </PixelButton>
+                  </div>
                 </div>
-                <PixelButton size="sm" className="inline-flex items-center gap-2" asChild>
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                    <Github size={16} />
-                    View on GitHub
-                  </a>
-                </PixelButton>
               </PixelCard>
             ))}
           </div>

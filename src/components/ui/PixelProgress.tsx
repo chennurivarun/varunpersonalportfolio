@@ -15,7 +15,7 @@ const PixelProgress = ({
   className,
   value,
   max = 100,
-  pixelColor = "#8B5CF6",
+  pixelColor,
   label,
   showLabel = true,
   ...props
@@ -43,7 +43,7 @@ const PixelProgress = ({
           className="absolute inset-0 pointer-events-none" 
           style={{
             backgroundSize: "4px 100%",
-            backgroundImage: `repeating-linear-gradient(to right, transparent, transparent 3px, ${pixelColor} 3px, ${pixelColor} 4px)`,
+            backgroundImage: `repeating-linear-gradient(to right, transparent, transparent 3px, ${pixelColor || "hsl(var(--pixel-color))"} 3px, ${pixelColor || "hsl(var(--pixel-color))"} 4px)`,
             width: `${percentage}%`,
             maxWidth: "100%",
           }}

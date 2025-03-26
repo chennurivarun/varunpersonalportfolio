@@ -8,7 +8,7 @@ interface PixelButtonProps extends ButtonProps {
 }
 
 const PixelButton = React.forwardRef<HTMLButtonElement, PixelButtonProps>(
-  ({ className, pixelColor = "#8B5CF6", children, ...props }, ref) => {
+  ({ className, pixelColor, children, ...props }, ref) => {
     return (
       <Button
         ref={ref}
@@ -23,9 +23,13 @@ const PixelButton = React.forwardRef<HTMLButtonElement, PixelButtonProps>(
           "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
           className
         )}
-        style={{
-          borderImage: `url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H4H8V4V8H4H0V4V0Z' fill='${encodeURIComponent(pixelColor)}'/%3E%3C/svg%3E") 2 / 2px / 0 round`,
-        }}
+        style={
+          pixelColor
+            ? {
+                borderImage: `url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H4H8V4V8H4H0V4V0Z' fill='${encodeURIComponent(pixelColor)}'/%3E%3C/svg%3E") 2 / 2px / 0 round`,
+              }
+            : undefined
+        }
         {...props}
       >
         {children}
