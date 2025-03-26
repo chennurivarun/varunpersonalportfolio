@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ArrowRight, Briefcase, Code, FileText } from "lucide-react";
 import PageContainer from "@/components/layout/PageContainer";
@@ -10,17 +9,19 @@ const Index = () => {
   return (
     <PageContainer>
       {/* Hero Section */}
-      <section className="relative py-20 bg-background">
+      <section className="relative py-20 min-h-[80vh] flex items-center">
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
           style={{
-            backgroundImage: "linear-gradient(45deg, hsl(var(--pixel-color)) 25%, transparent 25%, transparent 50%, hsl(var(--pixel-color)) 50%, hsl(var(--pixel-color)) 75%, transparent 75%, transparent)",
-            backgroundSize: "16px 16px",
+            backgroundImage: "url('/lovable-uploads/8e5633f3-56df-45ee-8271-d364c247a631.png')",
           }}
-        ></div>
-        <div className="container px-4 mx-auto relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block">
+        >
+          {/* Glass overlay */}
+          <div className="absolute inset-0 backdrop-blur-sm bg-background/30"></div>
+        </div>
+        <div className="container px-4 mx-auto relative z-10">
+          <div className="max-w-3xl mx-auto text-center animate-pixel-fade-in">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block text-shadow-md">
               Hello, I'm <span className="text-pixel">Varun</span>
               <span 
                 className="absolute -bottom-1 left-0 w-full h-1" 
@@ -30,14 +31,14 @@ const Index = () => {
                 }}
               ></span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 text-shadow-sm">
               AI Product Architect & Researcher
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <PixelButton asChild>
+              <PixelButton asChild className="animate-slide-in-bottom" style={{ animationDelay: "200ms" }}>
                 <Link to="/about">About Me</Link>
               </PixelButton>
-              <PixelButton asChild variant="outline">
+              <PixelButton asChild variant="outline" className="animate-slide-in-bottom" style={{ animationDelay: "300ms" }}>
                 <Link to="/projects">View Projects</Link>
               </PixelButton>
             </div>
@@ -60,10 +61,10 @@ const Index = () => {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <PixelCard className="h-full">
+            <PixelCard className="h-full animate-fade-in" style={{ animationDelay: "100ms" }}>
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
+                  className="w-16 h-16 mb-4 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg transition-transform hover:scale-105"
                   style={{
                     backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
@@ -78,10 +79,10 @@ const Index = () => {
               </div>
             </PixelCard>
 
-            <PixelCard className="h-full">
+            <PixelCard className="h-full animate-fade-in" style={{ animationDelay: "200ms" }}>
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
+                  className="w-16 h-16 mb-4 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg transition-transform hover:scale-105"
                   style={{
                     backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
@@ -96,10 +97,10 @@ const Index = () => {
               </div>
             </PixelCard>
 
-            <PixelCard className="h-full">
+            <PixelCard className="h-full animate-fade-in" style={{ animationDelay: "300ms" }}>
               <div className="flex flex-col items-center text-center">
                 <div 
-                  className="w-16 h-16 mb-4 flex items-center justify-center bg-primary/10 rounded-lg"
+                  className="w-16 h-16 mb-4 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg transition-transform hover:scale-105"
                   style={{
                     backgroundImage: "linear-gradient(45deg, transparent 25%, rgba(var(--pixel-color) / 0.1) 25%, rgba(var(--pixel-color) / 0.1) 50%, transparent 50%, transparent 75%, rgba(var(--pixel-color) / 0.1) 75%, rgba(var(--pixel-color) / 0.1))",
                     backgroundSize: "8px 8px",
@@ -138,23 +139,23 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <PixelCard className="h-full overflow-hidden">
+            <PixelCard className="h-full overflow-hidden animate-slide-in-bottom" style={{ animationDelay: "100ms" }}>
               <div className="h-48 mb-4 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QUklMjBsYW5ndWFnZSUyMG1vZGVsfGVufDB8fDB8fHww" 
+                  src="/lovable-uploads/8fa64e62-0fd8-4fd8-b96c-7e2f3973bad9.webp" 
                   alt="AI Assistant based on GPT-3.5" 
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="p-4">
+              <div className="p-4 backdrop-blur-sm bg-background/20">
                 <h3 className="text-xl font-semibold mb-3">AI Assistant based on GPT-3.5</h3>
                 <p className="text-muted-foreground mb-4">
                   A personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">GPT-3.5</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">NLP</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">GPT-3.5</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">NLP</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">Python</span>
                 </div>
                 <div className="flex justify-between">
                   <PixelButton size="sm" asChild>
@@ -169,7 +170,7 @@ const Index = () => {
               </div>
             </PixelCard>
 
-            <PixelCard className="h-full overflow-hidden">
+            <PixelCard className="h-full overflow-hidden animate-slide-in-bottom" style={{ animationDelay: "200ms" }}>
               <div className="h-48 mb-4 overflow-hidden">
                 <img 
                   src="/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png" 
@@ -177,15 +178,15 @@ const Index = () => {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="p-4">
+              <div className="p-4 backdrop-blur-sm bg-background/20">
                 <h3 className="text-xl font-semibold mb-3">Zaya - AI Personal Assistant</h3>
                 <p className="text-muted-foreground mb-4">
                   An AI personal assistant capable of executing real-time tasks through voice commands and CMD control.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">AI</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Voice Recognition</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1">Python</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">AI</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">Voice Recognition</span>
+                  <span className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">Python</span>
                 </div>
                 <div className="flex justify-between">
                   <PixelButton size="sm" asChild>

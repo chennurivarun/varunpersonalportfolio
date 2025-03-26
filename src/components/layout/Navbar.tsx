@@ -1,12 +1,28 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -22,10 +38,19 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md z-50 border-b border-border">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+      scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+    )}>
       <nav className="container mx-auto px-4 flex justify-between items-center h-16">
-        <NavLink to="/" className="text-xl md:text-2xl font-bold">
-          <span className="font-pixel text-sm md:text-base">Varun</span>
+        <NavLink 
+          to="/" 
+          className="text-xl md:text-2xl font-bold transition-transform hover:scale-105"
+        >
+          <span className="font-pixel text-sm md:text-base relative">
+            Varun
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-pixel opacity-80"></span>
+          </span>
         </NavLink>
 
         {/* Desktop Navigation */}
@@ -36,7 +61,7 @@ const Navbar = () => {
               to={link.href}
               className={({ isActive }) =>
                 cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-colors relative group",
+                  "px-3 py-2 rounded-md text-sm font-medium transition-all relative group",
                   isActive
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -70,31 +95,34 @@ const Navbar = () => {
           <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
-            className="p-2 rounded-md text-muted-foreground ml-1"
+            className="p-2 ml-1 bg-background/40 backdrop-blur-sm rounded-md text-foreground border border-border/30 transition-all hover:bg-background/60"
             aria-label="Toggle mobile menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Enhanced with animations and glass morphism */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
+        <div className="md:hidden bg-background/90 backdrop-blur-md border-b border-border animate-slide-in-bottom">
           <div className="container mx-auto px-4 py-2 space-y-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <NavLink
                 key={link.name}
                 to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
                   cn(
-                    "block px-3 py-2 rounded-md text-base font-medium",
+                    "block px-3 py-2 rounded-md text-base font-medium transition-all",
+                    "border-l-2",
                     isActive
-                      ? "bg-accent text-accent-foreground"
-                      : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                      ? "border-pixel bg-accent/30 text-foreground"
+                      : "border-transparent text-foreground/80 hover:bg-accent/20 hover:text-foreground",
+                    "animate-fade-in"
                   )
                 }
+                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {link.name}
               </NavLink>

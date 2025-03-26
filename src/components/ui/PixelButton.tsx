@@ -5,22 +5,25 @@ import { cn } from "@/lib/utils";
 
 interface PixelButtonProps extends ButtonProps {
   pixelColor?: string;
+  glassEffect?: boolean;
 }
 
 const PixelButton = React.forwardRef<HTMLButtonElement, PixelButtonProps>(
-  ({ className, pixelColor, children, ...props }, ref) => {
+  ({ className, pixelColor, glassEffect = true, children, variant = "default", ...props }, ref) => {
     return (
       <Button
         ref={ref}
+        variant={variant}
         className={cn(
-          "relative border-2 border-primary font-medium transition-colors",
+          "relative border-2 border-pixel font-medium transition-all duration-200",
           "before:absolute before:inset-0 before:bg-background before:z-[-1]",
-          "before:translate-x-1 before:translate-y-1 before:border-2 before:border-primary",
+          "before:translate-x-1 before:translate-y-1 before:border-2 before:border-pixel before:transition-transform before:duration-200",
           "hover:before:translate-x-0 hover:before:translate-y-0",
           "active:translate-x-1 active:translate-y-1 active:before:translate-x-0 active:before:translate-y-0",
           "after:absolute after:bottom-[-4px] after:right-[-4px] after:h-3 after:w-3",
-          "after:border-b-2 after:border-r-2 after:border-primary",
+          "after:border-b-2 after:border-r-2 after:border-pixel",
           "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+          glassEffect && variant === "outline" && "backdrop-blur-sm bg-background/20",
           className
         )}
         style={

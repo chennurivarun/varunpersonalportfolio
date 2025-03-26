@@ -14,7 +14,7 @@ const Projects = () => {
       description: "I developed a personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality.",
       tags: ["GPT-3.5", "NLP", "Python", "AI"],
       githubUrl: "https://github.com",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QUklMjBsYW5ndWFnZSUyMG1vZGVsfGVufDB8fDB8fHww",
+      image: "/lovable-uploads/8fa64e62-0fd8-4fd8-b96c-7e2f3973bad9.webp",
     },
     {
       id: "image-cartoonify",
@@ -45,9 +45,16 @@ const Projects = () => {
   return (
     <PageContainer>
       {/* Projects Header */}
-      <section className="py-16 md:py-20 bg-muted/30">
+      <section className="py-16 md:py-20 bg-muted/30 relative">
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "linear-gradient(45deg, hsl(var(--pixel-color)) 25%, transparent 25%, transparent 50%, hsl(var(--pixel-color)) 50%, hsl(var(--pixel-color)) 75%, transparent 75%, transparent)",
+            backgroundSize: "16px 16px",
+          }}
+        ></div>
         <div className="container px-4 mx-auto">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
               My Projects
               <span 
@@ -70,8 +77,12 @@ const Projects = () => {
       <section className="py-16">
         <div className="container px-4 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <PixelCard key={project.id} className="h-full flex flex-col overflow-hidden">
+            {projects.map((project, index) => (
+              <PixelCard 
+                key={project.id} 
+                className="h-full flex flex-col overflow-hidden animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <Link to={`/projects/${project.id}`} className="block h-48 mb-4 overflow-hidden">
                   <img 
                     src={project.image} 
@@ -79,7 +90,7 @@ const Projects = () => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </Link>
-                <div className="flex flex-col flex-grow p-4">
+                <div className="flex flex-col flex-grow p-4 glass-morphism">
                   <h3 className="text-xl font-semibold mb-3">
                     <Link to={`/projects/${project.id}`} className="hover:text-primary transition-colors">
                       {project.title}
@@ -88,7 +99,7 @@ const Projects = () => {
                   <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs bg-primary/10 text-primary px-2 py-1">
+                      <span key={tag} className="text-xs bg-background/30 backdrop-blur-sm text-primary px-2 py-1">
                         {tag}
                       </span>
                     ))}

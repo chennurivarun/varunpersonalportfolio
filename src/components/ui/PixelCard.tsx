@@ -8,16 +8,18 @@ interface PixelCardProps extends React.HTMLAttributes<HTMLDivElement> {
   footer?: React.ReactNode;
   pixelColor?: string;
   hoverEffect?: boolean;
+  glassEffect?: boolean;
 }
 
 const PixelCard = React.forwardRef<HTMLDivElement, PixelCardProps>(
-  ({ className, header, footer, children, pixelColor, hoverEffect = true, ...props }, ref) => {
+  ({ className, header, footer, children, pixelColor, hoverEffect = true, glassEffect = true, ...props }, ref) => {
     return (
       <Card
         ref={ref}
         className={cn(
-          "relative border-2 border-pixel overflow-hidden transition-transform duration-300",
+          "relative border-2 border-pixel overflow-hidden transition-all duration-300",
           hoverEffect && "hover:-translate-y-1 hover:shadow-lg",
+          glassEffect && "backdrop-blur-sm bg-background/30",
           className
         )}
         style={{
@@ -27,9 +29,9 @@ const PixelCard = React.forwardRef<HTMLDivElement, PixelCardProps>(
         }}
         {...props}
       >
-        {header && <CardHeader className="bg-muted border-b border-border">{header}</CardHeader>}
+        {header && <CardHeader className="bg-muted/50 backdrop-blur-sm border-b border-border">{header}</CardHeader>}
         <CardContent className="p-6">{children}</CardContent>
-        {footer && <CardFooter className="bg-muted border-t border-border">{footer}</CardFooter>}
+        {footer && <CardFooter className="bg-muted/50 backdrop-blur-sm border-t border-border">{footer}</CardFooter>}
         <div 
           className="absolute bottom-[-4px] right-[-4px] h-3 w-3 border-b-2 border-r-2 border-pixel" 
         />
