@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				pixel: ['Press Start 2P', 'monospace'],
+				mono: ['JetBrains Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +66,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				pixel: {
+					purple: '#8B5CF6',
+					blue: '#0EA5E9',
+					orange: '#F97316',
+					red: '#ea384c',
 				}
 			},
 			borderRadius: {
@@ -84,11 +95,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pixel-fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.95) translateY(10px)'
+					},
+					'50%': {
+						opacity: '0.5',
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pixel-fade-in': 'pixel-fade-in 0.3s ease-out',
 			}
 		}
 	},
