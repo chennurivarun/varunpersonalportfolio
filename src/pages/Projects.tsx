@@ -13,7 +13,7 @@ const Projects = () => {
       title: "AI Assistant based on GPT-3.5",
       description: "I developed a personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality.",
       tags: ["GPT-3.5", "NLP", "Python", "AI"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/chennurivarun/zaya-ai-assistant",
       image: "/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png",
     },
     {
@@ -21,7 +21,7 @@ const Projects = () => {
       title: "Image Cartoonify",
       description: "I created an image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification.",
       tags: ["OpenCV", "Deep Learning", "Image Processing", "Python"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/chennurivarun/image_cartooniify",
       image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
     },
     {
@@ -29,7 +29,7 @@ const Projects = () => {
       title: "Crypto Price Prediction Model",
       description: "This project involved developing a deep learning model using Long Short-Term Memory (LSTM) networks and TensorFlow to predict cryptocurrency prices. By analyzing historical market data, the model provides high-accuracy predictions, useful for investors and analysts.",
       tags: ["LSTM", "TensorFlow", "Time Series", "Financial Modeling"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/chennurivarun/crypto-price-prediction",
       image: "/lovable-uploads/78d367ff-c6ad-4998-9440-0dce7fa43f95.png",
     },
     {
@@ -37,7 +37,7 @@ const Projects = () => {
       title: "Zaya - AI Personal Assistant",
       description: "I built Zaya, an AI personal assistant capable of executing real-time tasks through voice commands and CMD control. Zaya offers a highly customizable user experience, allowing individuals to interact with their system hands-free.",
       tags: ["AI", "Voice Recognition", "Python", "Automation"],
-      githubUrl: "https://github.com",
+      githubUrl: "https://github.com/chennurivarun/zaya-ai-assistant",
       image: "/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png",
     },
   ];
@@ -105,7 +105,7 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex justify-between">
-                    <PixelButton size="sm" className="inline-flex items-center gap-2" asChild>
+                    <PixelButton size="sm" variant="outline" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github size={16} />
                         View Code
