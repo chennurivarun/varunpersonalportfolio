@@ -13,6 +13,7 @@ const Index = () => {
       }}>
           {/* Glass overlay */}
           <div className="absolute inset-0 backdrop-blur-sm bg-background/30"></div>
+          <img alt="AI Assistant based on GPT-3.5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://wallpapercave.com/wp/wp14988134.webp" />
         </div>
         <div className="container px-4 mx-auto relative z-10">
           <div className="max-w-3xl mx-auto text-center animate-pixel-fade-in">
