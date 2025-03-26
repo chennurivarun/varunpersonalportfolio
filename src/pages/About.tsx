@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Briefcase, GraduationCap, Award, Code } from "lucide-react";
 import PageContainer from "@/components/layout/PageContainer";
@@ -7,71 +6,75 @@ import { PixelTimeline } from "@/components/ui/PixelTimeline";
 import { PixelProgress } from "@/components/ui/PixelProgress";
 import { Link } from "react-router-dom";
 import { PixelButton } from "@/components/ui/PixelButton";
-
 const About = () => {
-  const experienceItems = [
-    {
-      title: "AI Product Architect",
-      date: "April 2024 - Present",
-      description: "Leading the design and development of innovative AI-driven products at Genie AI, focusing on enhancing human productivity through advanced technology.",
-      icon: <Briefcase className="text-primary" size={16} />,
-    },
-    {
-      title: "AI Researcher",
-      date: "Feb 2024 - April 2024",
-      description: "Developed software and hardware architecture for AI products, established architecture design processes at Genie AI.",
-      icon: <Code className="text-primary" size={16} />,
-    },
-    {
-      title: "RPA Engineer",
-      date: "Sep 2023 - Feb 2024",
-      description: "Led technical architecture of AI and RPA tools at Genie AI, contributing to product roadmapping and scalable solutions.",
-      icon: <Code className="text-primary" size={16} />,
-    },
-    {
-      title: "Technical & Design Lead",
-      date: "Aug 2021 - Aug 2022",
-      description: "Led a team at Google Developer Students Club, organizing events and delivering technical talks on emerging technologies.",
-      icon: <Briefcase className="text-primary" size={16} />,
-    },
-    {
-      title: "Computer Science Engineering",
-      date: "July 2019 - July 2023",
-      description: "Completed B.Tech. in Computer Science Engineering at Bharat Institute of Engineering and Technology with a GPA of 7.5/10.",
-      icon: <GraduationCap className="text-primary" size={16} />,
-    },
-  ];
-
-  const skills = [
-    { name: "Python", level: 90 },
-    { name: "JavaScript", level: 75 },
-    { name: "AI & Machine Learning", level: 85 },
-    { name: "RPA", level: 88 },
-    { name: "Web Development", level: 70 },
-    { name: "Database Management", level: 65 },
-  ];
-
-  const facts = [
-    { number: "3+", text: "Years Experience" },
-    { number: "10+", text: "Projects Completed" },
-    { number: "4+", text: "Certifications" },
-    { number: "1", text: "Research Paper" },
-  ];
-
-  return (
-    <PageContainer>
+  const experienceItems = [{
+    title: "AI Product Architect",
+    date: "April 2024 - Present",
+    description: "Leading the design and development of innovative AI-driven products at Genie AI, focusing on enhancing human productivity through advanced technology.",
+    icon: <Briefcase className="text-primary" size={16} />
+  }, {
+    title: "AI Researcher",
+    date: "Feb 2024 - April 2024",
+    description: "Developed software and hardware architecture for AI products, established architecture design processes at Genie AI.",
+    icon: <Code className="text-primary" size={16} />
+  }, {
+    title: "RPA Engineer",
+    date: "Sep 2023 - Feb 2024",
+    description: "Led technical architecture of AI and RPA tools at Genie AI, contributing to product roadmapping and scalable solutions.",
+    icon: <Code className="text-primary" size={16} />
+  }, {
+    title: "Technical & Design Lead",
+    date: "Aug 2021 - Aug 2022",
+    description: "Led a team at Google Developer Students Club, organizing events and delivering technical talks on emerging technologies.",
+    icon: <Briefcase className="text-primary" size={16} />
+  }, {
+    title: "Computer Science Engineering",
+    date: "July 2019 - July 2023",
+    description: "Completed B.Tech. in Computer Science Engineering at Bharat Institute of Engineering and Technology with a GPA of 7.5/10.",
+    icon: <GraduationCap className="text-primary" size={16} />
+  }];
+  const skills = [{
+    name: "Python",
+    level: 90
+  }, {
+    name: "JavaScript",
+    level: 75
+  }, {
+    name: "AI & Machine Learning",
+    level: 85
+  }, {
+    name: "RPA",
+    level: 88
+  }, {
+    name: "Web Development",
+    level: 70
+  }, {
+    name: "Database Management",
+    level: 65
+  }];
+  const facts = [{
+    number: "3+",
+    text: "Years Experience"
+  }, {
+    number: "10+",
+    text: "Projects Completed"
+  }, {
+    number: "4+",
+    text: "Certifications"
+  }, {
+    number: "1",
+    text: "Research Paper"
+  }];
+  return <PageContainer>
       <div className="container px-4 py-12 mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 order-2 lg:order-1">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
               About Me
-              <span 
-                className="absolute -bottom-1 left-0 w-full h-1" 
-                style={{ 
-                  backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
-                  backgroundSize: "8px 4px",
-                }}
-              ></span>
+              <span style={{
+              backgroundImage: "linear-gradient(to right, #8B5CF6 0%, #8B5CF6 50%, transparent 50%, transparent 100%)",
+              backgroundSize: "8px 4px"
+            }} className="absolute -bottom-1 left-0 w-full h-1 text-zinc-50"></span>
             </h1>
 
             <div className="space-y-8">
@@ -89,12 +92,10 @@ const About = () => {
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {facts.map((fact, index) => (
-                  <PixelCard key={index} className="p-4 text-center h-full">
+                {facts.map((fact, index) => <PixelCard key={index} className="p-4 text-center h-full">
                     <h3 className="text-3xl font-bold text-primary mb-1">{fact.number}</h3>
                     <p className="text-sm text-muted-foreground">{fact.text}</p>
-                  </PixelCard>
-                ))}
+                  </PixelCard>)}
               </div>
 
               <div>
@@ -112,18 +113,11 @@ const About = () => {
 
           <div className="lg:col-span-1 order-1 lg:order-2">
             <PixelCard className="p-6 mb-8">
-              <div 
-                className="w-32 h-32 mx-auto rounded-none mb-6 bg-primary/10 overflow-hidden"
-                style={{
-                  border: "3px solidrgb(1, 0, 5)",
-                  boxShadow: "5px 5px 0 rgba(139, 92, 246, 0.4)",
-                }}
-              >
-                <img 
-                  src="/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png" 
-                  alt="Varun" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-32 h-32 mx-auto rounded-none mb-6 bg-primary/10 overflow-hidden" style={{
+              border: "3px solidrgb(1, 0, 5)",
+              boxShadow: "5px 5px 0 rgba(139, 92, 246, 0.4)"
+            }}>
+                <img src="/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png" alt="Varun" className="w-full h-full object-cover" />
               </div>
               <div className="text-center">
                 <h2 className="text-xl font-bold mb-1">Varun Chennuri</h2>
@@ -152,22 +146,18 @@ const About = () => {
                 Skills
               </h2>
               <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={index}>
+                {skills.map((skill, index) => <div key={index}>
                     <div className="flex justify-between mb-1">
                       <span className="text-sm font-medium">{skill.name}</span>
                       <span className="text-sm text-primary">{skill.level}%</span>
                     </div>
                     <PixelProgress value={skill.level} />
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </PixelCard>
           </div>
         </div>
       </div>
-    </PageContainer>
-  );
+    </PageContainer>;
 };
-
 export default About;
