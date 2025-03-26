@@ -12,7 +12,7 @@ const projects = [
     id: "ai-assistant",
     title: "AI Assistant based on GPT-3.5",
     description: "A personal AI voice assistant utilizing GPT-3.5 to enhance user interaction through natural speech. This assistant is capable of understanding and processing user commands, offering a 25% improvement in interaction quality. By implementing custom natural language processing (NLP) models, I was able to make communication more seamless and responsive.",
-    image: "/lovable-uploads/d8cd174e-e891-41c0-8003-effbc27d153f.png",
+    image: "/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png",
     date: "January 2023",
     technologies: ["GPT-3.5", "NLP", "Python", "Voice Recognition"],
     features: [
@@ -37,7 +37,7 @@ const projects = [
     id: "image-cartoonify",
     title: "Image Cartoonify",
     description: "An image transformation application using OpenCV and deep learning techniques that allows users to convert images into cartoon-style graphics. The application was trained on a large dataset of images, achieving a 90% accuracy rate in cartoonification. This project showcases the power of machine learning in image manipulation.",
-    image: "/lovable-uploads/546de182-153c-44b9-aaf6-cfcd790339cd.png",
+    image: "/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png",
     date: "March 2023",
     technologies: ["OpenCV", "Deep Learning", "Python", "Image Processing"],
     features: [
