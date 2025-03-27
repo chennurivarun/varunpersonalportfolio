@@ -8,8 +8,9 @@ const Index = () => {
   return <PageContainer>
       {/* Hero Section */}
       <section className="relative py-20 min-h-[80vh] flex items-center">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90" style={{
-        backgroundImage: "url('/lovable-uploads/8e5633f3-56df-45ee-8271-d364c247a631.png')"
+        <div className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-90" style={{
+        backgroundImage: "url('/lovable-uploads/8e5633f3-56df-45ee-8271-d364c247a631.png')",
+        backgroundAttachment: "fixed"
       }}>
           {/* Glass overlay */}
           <div className="absolute inset-0 bg-background/30"></div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
 const Footer = () => {
-  return <footer className="border-t border-border bg-background">
+  return <footer className="border-t border-border backdrop-blur-sm bg-background/20">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -12,7 +12,7 @@ const Footer = () => {
               backgroundSize: "8px 4px"
             }} className="absolute -bottom-1 left-0 w-full h-1 text-gray-50"></span>
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground  mb-4">
               AI Product Architect and Researcher <br />
               Based in Hyderabad, Telangana
             </p>
