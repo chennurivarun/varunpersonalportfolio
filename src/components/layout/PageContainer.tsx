@@ -18,7 +18,6 @@ const PageContainer = ({
     <div className="flex flex-col min-h-screen relative">
       {/* Fixed background image for all pages */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
         <img 
           src={backgroundImage} 
           alt="Background" 
