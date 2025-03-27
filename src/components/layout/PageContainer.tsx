@@ -12,7 +12,7 @@ interface PageContainerProps {
 const PageContainer = ({ 
   children, 
   className = "",
-  backgroundImage = "/lovable-uploads/8e5633f3-56df-45ee-8271-d364c247a631.png" 
+  backgroundImage = "/lovable-uploads/43894c5e-5af3-4e03-bc32-b10c92bba094.png" 
 }: PageContainerProps) => {
   return (
     <div className="flex flex-col min-h-screen relative">
