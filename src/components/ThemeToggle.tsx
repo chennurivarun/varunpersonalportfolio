@@ -1,20 +1,21 @@
 
+import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Moon } from "lucide-react";
 import { useTheme } from "@/components/ThemeProvider";
 
 export function ThemeToggle() {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
-  // No functionality, just a static dark mode indicator
   return (
     <Button
       variant="ghost"
       size="icon"
-      className="rounded-full cursor-default"
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      className="rounded-full"
     >
-      <Moon className="h-5 w-5 text-white" />
-      <span className="sr-only">Dark mode</span>
+      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
     </Button>
   );
 }

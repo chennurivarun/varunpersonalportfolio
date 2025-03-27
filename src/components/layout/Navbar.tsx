@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,16 +40,16 @@ const Navbar = () => {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "bg-black/80 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
+      scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
     )}>
       <nav className="container mx-auto px-4 flex justify-between items-center h-16">
         <NavLink 
           to="/" 
           className="text-xl md:text-2xl font-bold transition-transform hover:scale-105"
         >
-          <span className="font-pixel text-sm md:text-base relative text-white">
+          <span className="font-pixel text-sm md:text-base relative">
             Varun
-            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gray-800 opacity-80"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-pixel opacity-80"></span>
           </span>
         </NavLink>
 
@@ -60,8 +63,8 @@ const Navbar = () => {
                 cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-all relative group",
                   isActive
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 )
               }
             >
@@ -70,10 +73,10 @@ const Navbar = () => {
                   {link.name}
                   {isActive && (
                     <span
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-gray-700"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-pixel"
                       style={{
                         backgroundImage:
-                          "linear-gradient(to right, #333 0%, #333 50%, transparent 50%, transparent 100%)",
+                          "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
                         backgroundSize: "6px 3px",
                       }}
                     ></span>
@@ -82,45 +85,42 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
+          <div className="pl-2">
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Mobile Menu Button - Enhanced with animation */}
         <div className="flex items-center md:hidden">
+          <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
-            className="p-2 ml-1 bg-black/40 backdrop-blur-md rounded-md text-white border border-gray-800/30 transition-all hover:bg-black/60"
+            className="p-2 ml-1 bg-background/40 backdrop-blur-sm rounded-md text-foreground border border-border/30 transition-all hover:bg-background/60"
             aria-label="Toggle mobile menu"
           >
             <div className="w-6 h-6 relative flex justify-center items-center">
-              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
-              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
             </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Glass morphism with floating effect */}
+      {/* Mobile Navigation - Full screen with enhanced animations */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden flex items-center justify-center">
-          <div 
-            className="absolute inset-0 bg-transparent"
-            onClick={() => setMobileMenuOpen(false)}
-          ></div>
-          <div className="relative w-11/12 h-4/5 mx-auto rounded-xl bg-black/60 backdrop-blur-xl border border-gray-800/40 shadow-2xl animate-fade-in overflow-hidden">
-            <div className="absolute top-4 right-4">
+        <div className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-lg animate-fade-in">
+          <div className="container mx-auto px-4 py-16 h-full flex flex-col">
+            <div className="flex justify-end mb-8">
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 rounded-full bg-black/50 text-white transition-all hover:bg-black/70"
+                className="p-2 rounded-full text-foreground transition-colors hover:bg-accent/20"
                 aria-label="Close menu"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                <X size={24} />
               </button>
             </div>
-            <div className="h-full flex flex-col justify-center p-8">
+            <div className="flex-1 flex flex-col justify-center">
               {navLinks.map((link, index) => (
                 <NavLink
                   key={link.name}
@@ -129,10 +129,10 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     cn(
                       "text-2xl font-medium py-4 transition-all relative group flex items-center",
-                      "animate-slide-in-bottom",
+                      "animate-slide-in-bottom opacity-0", // Animation classes
                       isActive
-                        ? "text-white"
-                        : "text-gray-400 hover:text-white"
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     )
                   }
                   style={{ 
@@ -143,7 +143,8 @@ const Navbar = () => {
                   <span className="relative">
                     {link.name}
                     <span className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-gray-700 w-0 transition-all duration-300 group-hover:w-full",
+                      "absolute -bottom-1 left-0 h-0.5 bg-pixel w-0 transition-all duration-300 group-hover:w-full",
+                      "bg-gradient-to-r from-foreground to-foreground/70"
                     )}></span>
                   </span>
                 </NavLink>
