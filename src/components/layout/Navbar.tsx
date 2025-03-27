@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Enhanced with animation */}
         <div className="flex items-center md:hidden">
           <ThemeToggle />
           <button
@@ -98,35 +98,58 @@ const Navbar = () => {
             className="p-2 ml-1 bg-background/40 backdrop-blur-sm rounded-md text-foreground border border-border/30 transition-all hover:bg-background/60"
             aria-label="Toggle mobile menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            <div className="w-6 h-6 relative flex justify-center items-center">
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
+            </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Enhanced with animations and glass morphism */}
+      {/* Mobile Navigation - Full screen with enhanced animations */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-background/90 backdrop-blur-md border-b border-border animate-slide-in-bottom">
-          <div className="container mx-auto px-4 py-2 space-y-1">
-            {navLinks.map((link, index) => (
-              <NavLink
-                key={link.name}
-                to={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  cn(
-                    "block px-3 py-2 rounded-md text-base font-medium transition-all",
-                    "border-l-2",
-                    isActive
-                      ? "border-pixel bg-accent/30 text-foreground"
-                      : "border-transparent text-foreground/80 hover:bg-accent/20 hover:text-foreground",
-                    "animate-fade-in"
-                  )
-                }
-                style={{ animationDelay: `${index * 50}ms` }}
+        <div className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-lg animate-fade-in">
+          <div className="container mx-auto px-4 py-16 h-full flex flex-col">
+            <div className="flex justify-end mb-8">
+              <button
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-full text-foreground transition-colors hover:bg-accent/20"
+                aria-label="Close menu"
               >
-                {link.name}
-              </NavLink>
-            ))}
+                <X size={24} />
+              </button>
+            </div>
+            <div className="flex-1 flex flex-col justify-center">
+              {navLinks.map((link, index) => (
+                <NavLink
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    cn(
+                      "text-2xl font-medium py-4 transition-all relative group flex items-center",
+                      "animate-slide-in-bottom opacity-0", // Animation classes
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    )
+                  }
+                  style={{ 
+                    animationDelay: `${index * 75}ms`,
+                    animationFillMode: 'forwards'
+                  }}
+                >
+                  <span className="relative">
+                    {link.name}
+                    <span className={cn(
+                      "absolute -bottom-1 left-0 h-0.5 bg-pixel w-0 transition-all duration-300 group-hover:w-full",
+                      "bg-gradient-to-r from-foreground to-foreground/70"
+                    )}></span>
+                  </span>
+                </NavLink>
+              ))}
+            </div>
           </div>
         </div>
       )}
