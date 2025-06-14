@@ -121,6 +121,16 @@ export default {
 					'0%': { transform: 'translateY(20px)', opacity: '0' },
 					'100%': { transform: 'translateY(0)', opacity: '1' }
 				},
+				'scale-in': {
+					'0%': { 
+						opacity: '0',
+						transform: 'scale(0.9) translateY(20px)'
+					},
+					'100%': { 
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
+				},
 				'pulse-pixel': {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.5' }
@@ -133,6 +143,7 @@ export default {
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
 				'slide-in-left': 'slide-in-left 0.3s ease-out',
 				'slide-in-bottom': 'slide-in-bottom 0.3s ease-out',
+				'scale-in': 'scale-in 0.3s ease-out',
 				'pulse-pixel': 'pulse-pixel 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}

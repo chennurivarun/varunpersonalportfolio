@@ -16,13 +16,19 @@ const PageContainer = ({
 }: PageContainerProps) => {
   return (
     <div className="flex flex-col min-h-screen relative">
-      {/* Fixed background image for all pages */}
+      {/* High-quality fixed background image */}
       <div className="fixed inset-0 -z-10">
         <img 
           src={backgroundImage} 
           alt="Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          style={{
+            imageRendering: 'auto',
+            filter: 'none'
+          }}
         />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
       
       <Navbar />

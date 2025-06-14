@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
@@ -40,16 +39,16 @@ const Navbar = () => {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-      scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+      scrolled ? "bg-black/20 backdrop-blur-lg border-b border-white/10" : "bg-transparent"
     )}>
       <nav className="container mx-auto px-4 flex justify-between items-center h-16">
         <NavLink 
           to="/" 
           className="text-xl md:text-2xl font-bold transition-transform hover:scale-105"
         >
-          <span className="font-pixel text-sm md:text-base relative">
+          <span className="font-pixel text-sm md:text-base relative text-white">
             Varun
-            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-pixel opacity-80"></span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white opacity-80"></span>
           </span>
         </NavLink>
 
@@ -61,10 +60,10 @@ const Navbar = () => {
               to={link.href}
               className={({ isActive }) =>
                 cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-all relative group",
+                  "px-3 py-2 rounded-md text-sm font-medium transition-all relative group text-white",
                   isActive
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "text-white"
+                    : "text-white/80 hover:text-white"
                 )
               }
             >
@@ -73,10 +72,10 @@ const Navbar = () => {
                   {link.name}
                   {isActive && (
                     <span
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-pixel"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white"
                       style={{
                         backgroundImage:
-                          "linear-gradient(to right, hsl(var(--pixel-color)) 0%, hsl(var(--pixel-color)) 50%, transparent 50%, transparent 100%)",
+                          "linear-gradient(to right, white 0%, white 50%, transparent 50%, transparent 100%)",
                         backgroundSize: "6px 3px",
                       }}
                     ></span>
@@ -85,70 +84,85 @@ const Navbar = () => {
               )}
             </NavLink>
           ))}
-          <div className="pl-2">
-            <ThemeToggle />
-          </div>
         </div>
 
-        {/* Mobile Menu Button - Enhanced with animation */}
+        {/* Mobile Menu Button - Enhanced hamburger animation */}
         <div className="flex items-center md:hidden">
-          <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
-            className="p-2 ml-1 bg-background/40 backdrop-blur-sm rounded-md text-foreground border border-border/30 transition-all hover:bg-background/60"
+            className="p-3 bg-black/30 backdrop-blur-md rounded-lg text-white border border-white/20 transition-all hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-white/30"
             aria-label="Toggle mobile menu"
           >
             <div className="w-6 h-6 relative flex justify-center items-center">
-              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
-              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`absolute block w-5 h-0.5 bg-current transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45' : 'translate-y-1.5'}`}></span>
             </div>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Full screen with enhanced animations */}
+      {/* Enhanced Mobile Navigation - Glass Morphism Floating Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-lg animate-fade-in">
-          <div className="container mx-auto px-4 py-16 h-full flex flex-col">
-            <div className="flex justify-end mb-8">
-              <button
-                onClick={toggleMobileMenu}
-                className="p-2 rounded-full text-foreground transition-colors hover:bg-accent/20"
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
-            </div>
-            <div className="flex-1 flex flex-col justify-center">
-              {navLinks.map((link, index) => (
-                <NavLink
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    cn(
-                      "text-2xl font-medium py-4 transition-all relative group flex items-center",
-                      "animate-slide-in-bottom opacity-0", // Animation classes
-                      isActive
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
-                    )
-                  }
-                  style={{ 
-                    animationDelay: `${index * 75}ms`,
-                    animationFillMode: 'forwards'
-                  }}
+        <div className="fixed inset-0 z-40 md:hidden">
+          {/* Background with same image and glass effect */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'url(https://img.freepik.com/premium-photo/pixel-art-mystical-background_1093524-2023.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-xl"></div>
+          </div>
+          
+          {/* Floating Menu Container */}
+          <div className="relative z-50 h-full flex items-center justify-center p-8">
+            <div className="w-full max-w-sm mx-auto bg-black/40 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl p-8 animate-scale-in">
+              {/* Close Button */}
+              <div className="flex justify-end mb-8">
+                <button
+                  onClick={toggleMobileMenu}
+                  className="p-3 rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 backdrop-blur-sm"
+                  aria-label="Close menu"
                 >
-                  <span className="relative">
-                    {link.name}
-                    <span className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-pixel w-0 transition-all duration-300 group-hover:w-full",
-                      "bg-gradient-to-r from-foreground to-foreground/70"
-                    )}></span>
-                  </span>
-                </NavLink>
-              ))}
+                  <X size={24} />
+                </button>
+              </div>
+              
+              {/* Navigation Links */}
+              <div className="space-y-4">
+                {navLinks.map((link, index) => (
+                  <NavLink
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      cn(
+                        "block text-xl font-medium py-4 px-6 rounded-xl transition-all relative group",
+                        "animate-slide-in-bottom opacity-0 bg-white/5 backdrop-blur-sm border border-white/10",
+                        "hover:bg-white/10 hover:border-white/20",
+                        isActive
+                          ? "text-white bg-white/15 border-white/30"
+                          : "text-white/90 hover:text-white"
+                      )
+                    }
+                    style={{ 
+                      animationDelay: `${index * 100}ms`,
+                      animationFillMode: 'forwards'
+                    }}
+                  >
+                    <span className="relative flex items-center justify-center">
+                      {link.name}
+                      <span className={cn(
+                        "absolute -bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 bg-white w-0 transition-all duration-300 group-hover:w-8"
+                      )}></span>
+                    </span>
+                  </NavLink>
+                ))}
+              </div>
             </div>
           </div>
         </div>
