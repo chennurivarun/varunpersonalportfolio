@@ -23,8 +23,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Accessibility: close on Escape and lock body scroll when menu is open
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', onKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    setMobileMenuOpen((open) => !open);
   };
 
   const navLinks = [
@@ -92,6 +109,8 @@ const Navbar = () => {
             onClick={toggleMobileMenu}
             className="p-3 bg-black/30 backdrop-blur-md rounded-lg text-white border border-white/20 transition-all hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-white/30"
             aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <div className="w-6 h-6 relative flex justify-center items-center">
               <span className={`absolute block w-5 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45' : '-translate-y-1.5'}`}></span>
@@ -104,10 +123,11 @@ const Navbar = () => {
 
       {/* Enhanced Mobile Navigation - Glass Morphism Floating Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div className="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true" id="mobile-menu">
           {/* Background with same image and glass effect */}
           <div 
             className="absolute inset-0"
+            aria-hidden="true"
             style={{
               backgroundImage: 'url(https://img.freepik.com/premium-photo/pixel-art-mystical-background_1093524-2023.jpg)',
               backgroundSize: 'cover',
@@ -119,7 +139,7 @@ const Navbar = () => {
           </div>
           
           {/* Floating Menu Container */}
-          <div className="relative z-50 h-full flex items-center justify-center p-8">
+          <div className="relative z-50 h-full flex items-center justify-center p-8" tabIndex={-1}>
             <div className="w-full max-w-sm mx-auto bg-black/40 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl p-8 animate-scale-in">
               {/* Close Button */}
               <div className="flex justify-end mb-8">

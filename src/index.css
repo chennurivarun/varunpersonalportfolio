@@ -85,6 +85,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 0 0% 100%;
+
+    /* Design tokens */
+    --radius: 0.75rem;
   }
 }
 
@@ -216,4 +219,27 @@
 .page-transition-exit-active {
   opacity: 0;
   transition: opacity 300ms;
+}
+
+/* Additional utilities */
+@layer utilities {
+  .aurora-overlay {
+    background:
+      radial-gradient(60% 60% at 20% 20%, hsl(var(--primary) / 0.08) 0%, transparent 60%),
+      radial-gradient(50% 50% at 80% 30%, hsl(var(--accent) / 0.10) 0%, transparent 60%),
+      radial-gradient(40% 40% at 30% 80%, hsl(var(--ring) / 0.10) 0%, transparent 60%);
+  }
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

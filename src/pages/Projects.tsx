@@ -80,6 +80,9 @@ const Projects = () => {
                     src={project.image} 
                     alt={project.title} 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                   />
                 </Link>
                 <div className="flex flex-col flex-grow p-4 glass-morphism">

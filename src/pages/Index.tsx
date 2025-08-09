@@ -108,7 +108,7 @@ const Index = () => {
               animationDelay: "100ms"
             }}>
               <div className="h-48 mb-4 overflow-hidden">
-                <img alt="AI Assistant based on GPT-3.5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png" />
+                <img alt="AI Assistant based on GPT-3.5" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="/lovable-uploads/61f3e5aa-1846-46df-9aed-ee7a1eb04a69.png" loading="lazy" decoding="async" sizes="(min-width: 768px) 50vw, 100vw" />
               </div>
               <div className="p-4 glass-morphism bg-black/30">
                 <h3 className="text-xl font-semibold mb-3 text-white">AI Assistant based on GPT-3.5</h3>
@@ -137,7 +137,7 @@ const Index = () => {
               animationDelay: "200ms"
             }}>
               <div className="h-48 mb-4 overflow-hidden">
-                <img src="/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png" alt="Zaya - AI Personal Assistant" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <img src="/lovable-uploads/0e7c778b-d87d-48be-9214-3978d3b8c22b.png" alt="Zaya - AI Personal Assistant" className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async" sizes="(min-width: 768px) 50vw, 100vw" />
               </div>
               <div className="p-4 glass-morphism bg-black/30">
                 <h3 className="text-xl font-semibold mb-3 text-white">Zaya - AI Personal Assistant</h3>

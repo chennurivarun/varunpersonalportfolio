@@ -18,11 +18,13 @@ export default {
 				'2xl': '1400px'
 			}
 		},
-		extend: {
-			fontFamily: {
-				pixel: ['Press Start 2P', 'monospace'],
-				mono: ['JetBrains Mono', 'monospace'],
-			},
+    extend: {
+      fontFamily: {
+        pixel: ['Press Start 2P', 'monospace'],
+        mono: ['JetBrains Mono', 'monospace'],
+        heading: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
