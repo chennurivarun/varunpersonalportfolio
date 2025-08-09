@@ -40,9 +40,6 @@ const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen((open) => !open);
-  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -106,7 +103,7 @@ const Navbar = () => {
         {/* Mobile Menu Button - Enhanced hamburger animation */}
         <div className="flex items-center md:hidden">
           <button
-            onClick={toggleMobileMenu}
+            onClick={() => setMobileMenuOpen((open) => !open)}
             className="p-3 bg-black/30 backdrop-blur-md rounded-lg text-white border border-white/20 transition-all hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-white/30"
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
@@ -144,7 +141,7 @@ const Navbar = () => {
               {/* Close Button */}
               <div className="flex justify-end mb-8">
                 <button
-                  onClick={toggleMobileMenu}
+                  onClick={() => setMobileMenuOpen(false)}
                   className="p-3 rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 backdrop-blur-sm"
                   aria-label="Close menu"
                 >
