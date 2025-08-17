@@ -58,11 +58,11 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 flex justify-between items-center h-16">
         <NavLink 
           to="/" 
-          className="text-xl md:text-2xl font-bold transition-transform hover:scale-105"
+          className="text-xl md:text-2xl font-bold transition-all duration-300 hover:scale-105 group"
         >
-          <span className="font-pixel text-sm md:text-base relative text-white">
-            Varun
-            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-white opacity-80"></span>
+          <span className="font-ai text-sm md:text-base relative text-white">
+            <span className="ai-text-glow">VARUN</span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-ai-purple to-ai-cyan group-hover:shadow-glow transition-all duration-300"></span>
           </span>
         </NavLink>
 
@@ -74,9 +74,9 @@ const Navbar = () => {
               to={link.href}
               className={({ isActive }) =>
                 cn(
-                  "px-3 py-2 rounded-md text-sm font-medium transition-all relative group text-white",
+                  "px-3 py-2 rounded-md text-sm font-medium transition-all relative group text-white hover:bg-white/10",
                   isActive
-                    ? "text-white"
+                    ? "text-white bg-primary/20 border border-primary/30"
                     : "text-white/80 hover:text-white"
                 )
               }

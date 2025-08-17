@@ -2,20 +2,23 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { NeuralBackground } from "@/components/ui/NeuralBackground";
 
 interface PageContainerProps {
   children: React.ReactNode;
   className?: string;
-  backgroundImage?: string;
+  backgroundVariant?: "matrix" | "neural" | "cyber" | "holographic";
+  showParticles?: boolean;
 }
 
 const PageContainer = ({ 
   children, 
   className = "",
-  backgroundImage = "https://img.freepik.com/premium-photo/pixel-art-mystical-background_1093524-2023.jpg" 
+  backgroundVariant = "neural",
+  showParticles = true
 }: PageContainerProps) => {
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <div className="flex flex-col min-h-screen relative overflow-hidden">
       {/* Skip link for accessibility */}
       <a
         href="#main-content"
@@ -23,24 +26,30 @@ const PageContainer = ({
       >
         Skip to content
       </a>
-      {/* High-quality fixed background image */}
+      
+      {/* AI Neural Background */}
       <div className="fixed inset-0 -z-10">
-        <img 
-          src={backgroundImage} 
-          alt="Pixel art mystical background image"
-          className="w-full h-full object-cover object-center"
-          loading="eager"
-          decoding="async"
+        {/* Base gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background/95" />
+        
+        {/* Neural network background */}
+        <NeuralBackground 
+          variant={backgroundVariant} 
+          intensity="medium" 
+          animated={showParticles}
+          className="opacity-80"
         />
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-background/60"></div>
-        {/* Subtle aurora gradient overlay */}
-        <div className="absolute inset-0 pointer-events-none aurora-overlay opacity-30 mix-blend-screen"></div>
+        
+        {/* Overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/60" />
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
       </div>
       
       <Navbar />
       
-      <main id="main-content" className={`flex-grow pt-16 ${className}`}>
+      <main id="main-content" className={`flex-grow pt-16 relative z-10 ${className}`}>
         {children}
       </main>
       
