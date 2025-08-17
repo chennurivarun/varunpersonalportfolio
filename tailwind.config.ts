@@ -141,19 +141,19 @@ export default {
 				'holographic-glow': {
 					'0%, 100%': { 
 						filter: 'hue-rotate(0deg) brightness(1)',
-						box-shadow: '0 0 20px rgba(139, 92, 246, 0.5)'
+						'box-shadow': '0 0 20px rgba(139, 92, 246, 0.5)'
 					},
 					'25%': { 
 						filter: 'hue-rotate(90deg) brightness(1.2)',
-						box-shadow: '0 0 30px rgba(59, 130, 246, 0.7)'
+						'box-shadow': '0 0 30px rgba(59, 130, 246, 0.7)'
 					},
 					'50%': { 
 						filter: 'hue-rotate(180deg) brightness(1.1)',
-						box-shadow: '0 0 40px rgba(16, 185, 129, 0.6)'
+						'box-shadow': '0 0 40px rgba(16, 185, 129, 0.6)'
 					},
 					'75%': { 
 						filter: 'hue-rotate(270deg) brightness(1.3)',
-						box-shadow: '0 0 35px rgba(236, 72, 153, 0.8)'
+						'box-shadow': '0 0 35px rgba(236, 72, 153, 0.8)'
 					}
 				},
 				'ai-float': {
@@ -204,11 +204,11 @@ export default {
 				},
 				'quantum-shift': {
 					'0%, 100%': { 
-						background-position: '0% 50%',
+						'background-position': '0% 50%',
 						opacity: '0.8'
 					},
 					'50%': { 
-						background-position: '100% 50%',
+						'background-position': '100% 50%',
 						opacity: '1'
 					}
 				},
